@@ -24,7 +24,7 @@ public class Main {
         londonStore.addToppingPrice("Pepperoni", 8.0);
         londonStore.addDrinkPrice("Cola", 3.0);
 
-        londonStore.addDeal(new BuyOneGetOneFreePizzaDeal());
+        //londonStore.addDeal(new BuyOneGetOneFreePizzaDeal());
         londonStore.addDeal(new FreeDrinkWithPizzaDeal());
 
         // Create pizzas

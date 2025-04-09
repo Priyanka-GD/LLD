@@ -26,7 +26,7 @@ public class Order {
             total += orderItem.getPrice();
         }
         for (Deal deal : this.store.getDeals()) {
-            total += deal.calculateDiscount(this);
+            total -= deal.calculateDiscount(this);
         }
         return total;
     }
