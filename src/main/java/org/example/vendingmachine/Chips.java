@@ -12,14 +12,22 @@ class Chips implements FoodItem {
     }
 
     @Override
-    public String getName() { return name; }
+    public String getName() {
+        return name;
+    }
 
     @Override
-    public int getCount() { return count; }
+    public int getCount() {
+        return count;
+    }
 
     @Override
-    public void decrementCount(int removeCnt) { this.count -= removeCnt; }
+    public void decrementCount(int removeCnt) {
+        this.count -= removeCnt;
+    }
 
     @Override
-    public int getPrice() { return price; }
+    public int getPrice() {
+        return price;
+    }
 }

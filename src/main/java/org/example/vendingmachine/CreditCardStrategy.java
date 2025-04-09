@@ -1,6 +1,6 @@
 package org.example.vendingmachine;
 
-public class CreditCardStrategy implements  PaymentStrategy{
+public class CreditCardStrategy implements PaymentStrategy {
 
     @Override
     public void pay(double amount) {
