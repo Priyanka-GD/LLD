@@ -1,4 +1,4 @@
-package org.example.parkinglot2;
+package org.example.parkinglot;
 
 class PaypalStrategy implements PaymentStrategy {
     @Override

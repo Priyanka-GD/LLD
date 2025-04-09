@@ -1,32 +1,40 @@
 package org.example.parkinglot;
 
-import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ParkingLot {
-    int locationId;
-    String locationName;
-    private int availableParkingSpots;
-    Rate rate;
+    private static ParkingLot instance;
+    private int availableSpace;
+    private Map<Integer, Vehicle> vehicleList;
+    Map<Integer, Ticket> ticketMap;
 
-    public ParkingLot(int spots, Rate rate) {
-        this.availableParkingSpots = spots;
-        this.rate = rate;
+    public ParkingLot(int availableSpace) {
+        this.availableSpace = availableSpace;
+        this.vehicleList = new HashMap<>();
+        this.ticketMap = new HashMap<>();
     }
 
-    public int getAvailableParkingSpots() {
-        return availableParkingSpots;
+    public static synchronized ParkingLot getInstance(int space) {
+        if (instance == null) {
+            instance = new ParkingLot(space);
+        }
+        return instance;
     }
 
-    public void decrementAvailableParkingSpots() {
-        this.availableParkingSpots--;
+    public boolean isParkingAvailable() {
+        return this.vehicleList.size() < this.availableSpace;
     }
 
-    public void incrementAvailableParkingSpots() {
-        this.availableParkingSpots++;
+    public void addVehicle(int ticketId, Vehicle vehicle) {
+        if (isParkingAvailable()) {
+            this.vehicleList.put(ticketId, vehicle);
+            this.ticketMap.put(ticketId, new Ticket(ticketId, vehicle));
+        }
     }
 
-    public long getRates(Duration duration) {
-        return this.rate.computeRate(duration);
+    public void removeVehicle(int ticketId) {
+        this.vehicleList.remove(ticketId);
+        this.ticketMap.remove(ticketId);
     }
-
 }

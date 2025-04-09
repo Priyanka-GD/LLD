@@ -1,23 +1,24 @@
 package org.example.parkinglot;
 
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 public class Ticket {
-    private static int idCounter = 0;
-    private final int ticketId;
-    private final LocalTime entryTime;
+    int id;
+    LocalDateTime entryTime;
 
-    public Ticket() {
-        this.ticketId = ++idCounter; // Assign unique ID
-        this.entryTime = LocalTime.now(); // Capture entry time
+    Vehicle vehicle;
+
+    public  Ticket(int id, Vehicle vehichle){
+        this.vehicle = vehichle;
+        this.entryTime = LocalDateTime.now();
+        this.id = id;
     }
 
-    public int getTicketId() {
-        return ticketId;
+    public int getId() {
+        return id;
     }
 
-    public LocalTime getEntryTime() {
+    public LocalDateTime getEntryTime() {
         return entryTime;
     }
-
 }
