@@ -1,4 +1,4 @@
-package org.example;
+package org.example.weatherstation;
 
 public class WeatherStation extends Publisher {
     private int temperature;

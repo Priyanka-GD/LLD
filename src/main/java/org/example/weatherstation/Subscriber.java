@@ -1,7 +1,4 @@
-package org.example;
-
-import java.util.ArrayList;
-import java.util.List;
+package org.example.weatherstation;
 
 public interface Subscriber {
     public void update(Publisher publisher);
