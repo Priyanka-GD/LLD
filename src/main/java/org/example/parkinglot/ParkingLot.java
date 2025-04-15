@@ -26,10 +26,11 @@ public class ParkingLot {
         return this.vehicleList.size() < this.availableSpace;
     }
 
-    public void addVehicle(int ticketId, Vehicle vehicle) {
+    public void addVehicle(Ticket ticket, Vehicle vehicle) {
         if (isParkingAvailable()) {
+            int ticketId = ticket.getId();
             this.vehicleList.put(ticketId, vehicle);
-            this.ticketMap.put(ticketId, new Ticket(ticketId, vehicle));
+            this.ticketMap.put(ticketId, ticket);
         }
     }
 

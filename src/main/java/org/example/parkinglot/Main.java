@@ -9,14 +9,14 @@ public class Main {
         car.setColor("Black");
 
         int ticketId = 1;
-        lot.addVehicle(ticketId, car);
+        lot.addVehicle(new Ticket(car), car);
 
         PaymentStrategy strategy = new PaypalStrategy();
         RateStrategyFactory rateFactory = new RateStrategyFactory();
         ParkingManagement manager = new ParkingManagement(lot, strategy, rateFactory);
 
         try {
-            Thread.sleep(10000);
+            Thread.sleep(50000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

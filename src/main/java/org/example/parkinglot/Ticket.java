@@ -3,15 +3,15 @@ package org.example.parkinglot;
 import java.time.LocalDateTime;
 
 public class Ticket {
-    int id;
+    int id = 0;
     LocalDateTime entryTime;
 
     Vehicle vehicle;
 
-    public  Ticket(int id, Vehicle vehichle){
+    public  Ticket(Vehicle vehichle){
         this.vehicle = vehichle;
         this.entryTime = LocalDateTime.now();
-        this.id = id;
+        this.id++;
     }
 
     public int getId() {

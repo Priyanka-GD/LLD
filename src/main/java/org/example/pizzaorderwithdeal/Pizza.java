@@ -18,10 +18,10 @@ public class Pizza implements OrderItem {
 
     @Override
     public double getPrice() {
-        double basePrice = pizzaBase.getPrice();
+        double totalPrice = pizzaBase.getPrice();
         for (Topping topping : this.toppings) {
-            basePrice += topping.getPrice();
+            totalPrice += topping.getPrice();
         }
-        return basePrice;
+        return totalPrice;
     }
 }
